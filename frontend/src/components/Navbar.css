@@ -1,0 +1,142 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(10, 14, 39, 0.95);
+  border-bottom: 1px solid var(--neon-cyan);
+  box-shadow: 0 5px 30px rgba(0, 255, 255, 0.2);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  text-decoration: none;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.logo-bracket {
+  color: var(--neon-cyan);
+  font-size: 28px;
+  animation: bracketPulse 2s ease-in-out infinite;
+}
+
+@keyframes bracketPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.logo-text {
+  letter-spacing: 4px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  align-items: center;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  font-weight: 400;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  padding: 5px 0;
+}
+
+.nav-number {
+  color: var(--neon-cyan);
+  font-weight: 500;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--neon-cyan);
+  transition: width 0.3s;
+}
+
+.nav-links li a:hover {
+  color: var(--neon-cyan);
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 2px;
+  background: var(--neon-cyan);
+  transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 70%;
+    height: calc(100vh - 70px);
+    background: rgba(10, 14, 39, 0.98);
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 20px;
+    align-items: flex-start;
+    transition: right 0.3s;
+    border-left: 1px solid var(--neon-cyan);
+    box-shadow: -5px 0 30px rgba(0, 255, 255, 0.2);
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links li a {
+    font-size: 16px;
+  }
+}

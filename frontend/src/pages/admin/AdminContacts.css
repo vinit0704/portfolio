@@ -1,0 +1,173 @@
+.contact-stats {
+  display: flex;
+  gap: 12px;
+}
+
+.stat-badge {
+  padding: 8px 16px;
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.stat-badge.new {
+  background: rgba(255, 0, 85, 0.1);
+  border-color: #ff0055;
+  color: #ff0055;
+}
+
+.contacts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-card {
+  background: var(--space-blue);
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 24px;
+  transition: all 0.3s;
+}
+
+.contact-card:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+}
+
+.contact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.contact-email {
+  color: var(--neon-cyan);
+  text-decoration: none;
+  font-size: 14px;
+  transition: opacity 0.3s;
+}
+
+.contact-email:hover {
+  opacity: 0.8;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.status-select {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  color: var(--text-primary);
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Fira Code', monospace;
+}
+
+.status-select.new {
+  border-color: #ff0055;
+  color: #ff0055;
+}
+
+.status-select.read {
+  border-color: #00d4ff;
+  color: #00d4ff;
+}
+
+.status-select.replied {
+  border-color: #00ff88;
+  color: #00ff88;
+}
+
+.status-select.archived {
+  border-color: var(--text-secondary);
+  color: var(--text-secondary);
+}
+
+.contact-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-subject {
+  color: var(--text-primary);
+  font-size: 15px;
+}
+
+.contact-subject strong {
+  color: var(--neon-cyan);
+  margin-right: 8px;
+}
+
+.contact-message {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.contact-message strong {
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.contact-message p {
+  margin: 0;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  border-left: 3px solid var(--neon-cyan);
+}
+
+.contact-meta {
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .contact-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
