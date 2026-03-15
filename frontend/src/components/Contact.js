@@ -23,19 +23,23 @@ const Contact = () => {
     if (errors[e.target.name]) setErrors(prev => ({ ...prev, [e.target.name]: '' }));
   };
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    const errs = validate(form);
-    if (Object.keys(errs).length) { setErrors(errs); return; }
-    setSending(true);
-    try {
-      await axios.post('/api/contact', form);
-      setSuccess(true);
-      setForm({ name:'', email:'', subject:'', message:'' });
-      setTimeout(() => setSuccess(false), 6000);
-    } catch { alert('Failed to send. Please try again.'); }
-    finally { setSending(false); }
-  };
+ const onSubmit = async (e) => {
+  e.preventDefault();
+  const errs = validate(form);
+  if (Object.keys(errs).length) { setErrors(errs); return; }
+  
+  setSending(true);
+  
+  // Replace API call with mailto link
+  const mailtoLink = `mailto:kamblevinit3004@gmail.com?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(`From: ${form.name} (${form.email})\n\n${form.message}`)}`;
+  
+  window.location.href = mailtoLink;
+  
+  setSuccess(true);
+  setForm({ name:'', email:'', subject:'', message:'' });
+  setSending(false);
+  setTimeout(() => setSuccess(false), 6000);
+};
 
   return (
     <section id="contact" className="contact-section">
